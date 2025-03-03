@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile  bx-lg'></i>
+			<span class="text">Пазл</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="#">
+					<i class='bx bxs-dashboard bx-sm' ></i>
+					<span class="text">Панель управления</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-doughnut-chart bx-sm' ></i>
+					<span class="text">Аналитика</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-message-dots bx-sm' ></i>
+					<span class="text">Сообщения</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-group bx-sm' ></i>
+					<span class="text">Группа</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu bottom">
+			<li>
+				<a href="#">
+					<i class='bx bxs-cog bx-sm bx-spin-hover' ></i>
+					<span class="text">Настройки</span>
+				</a>
+			</li>
+	</section>
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+<nav>
+    <i class='bx bx-menu bx-sm' ></i>
+    <form action="#">
+        <div class="form-input">
+            <input type="search" placeholder="Поиск">
+            <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+        </div>
+    </form>
+    <input type="checkbox" class="checkbox" id="switch-mode" hidden />
+    <label class="swith-lm" for="switch-mode">
+        <i class="bx bxs-moon"></i>
+        <i class="bx bx-sun"></i>
+        <div class="ball"></div>
+    </label>
+</nav>
+<!-- NAVBAR -->
+
+
+		<!-- MAIN -->
+		<main>
+			<div class="g">
+				<div class="card">
+				  <div class="imgBx">
+					<!-- Image fetched from Telegram account -->
+					<img id="user-img" src="https://source.unsplash.com/500x500/?person" alt="User Profile Picture" />
+				  </div>
+				  <div class="content">
+					<div class="details">
+					  <!-- Name and direction dynamically populated -->
+					  <h2 id="user-name">Воробьева Арина <br><span id="user-direction">Направление: фронтенд</span></h2>
+					  <div class="data">
+						<!-- Group, score, and course can be dynamically updated -->
+						<h3 id="user-group">5<br><span>Группа</span></h3>
+						<h3 id="user-score">435<br><span>Баллы</span></h3>
+						<h3 id="user-course">2<br><span>Курс</span></h3>
+					  </div>
+					</div>
+				  </div>
+				</div> 
+	  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+	  <style>
+		  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+  
+		.container8{ 
+			position: relative;
+			left: 1080px;
+			bottom: 250px;
+		  }
+  
+		  .container {
+			  width: 600px; /* Увеличиваем ширину */
+			  padding: 10px 20px 30px;
+			  background: #FFF;
+			  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+			  text-align: center; /* Центрируем текст внутри контейнера */
+		  }
+  
+		  p {
+			  margin-top: 2rem;
+			  font-size: 13px;
+		  }
+  
+		  #bar-chart, #line-chart {
+			  width: 600px; /* Увеличиваем ширину графиков */
+			  height: 400px; /* Увеличиваем высоту графиков */
+			  position: relative;
+			  margin: 20px 0; /* Отступы сверху и снизу */
+		  }
+  
+		  #bar-chart::before, #line-chart::before {
+			  content: "";
+			  position: absolute;
+			  display: block;
+			  width: 300px; /* Увеличиваем ширину белого прямоугольника */
+			  height: 60px; /* Увеличиваем высоту белого прямоугольника */
+			  left: 175px;
+			  top: 320px; /* Увеличиваем отступ сверху */
+			  background: #FAFAFA;
+			  box-shadow: 1px 1px 0 0 #DDD;
+		  }
+	  </style>
+	  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	  <script type="text/javascript">
+		  google.charts.load("current", {packages:["corechart"]});
+		  google.charts.setOnLoadCallback(drawCharts);
+  
+		  function drawCharts() {
+			  // Данные для столбчатой диаграммы по месяцам
+			  var barData = google.visualization.arrayToDataTable([
+				  ['Месяц', 'Образовательные', 'Дополнительные'],
+				  ['Сен',  85,      10],
+				  ['Окт',  78,      30],
+				  ['Ноя',  92,      44],
+				  ['Дек',  70,      75],
+				  ['Янв',  88,      50],
+				  ['Фев',  95,      20],
+				  ['Мар',  80,      40]
+			  ]);
+  
+			  // Настройки столбчатой диаграммы
+			  var barOptions = {
+				  focusTarget: 'category',
+				  backgroundColor: 'transparent',
+				  colors: ['cornflowerblue', 'tomato'],
+				  fontName: 'Open Sans',
+				  chartArea: {
+					  left: 50,
+					  top: 10,
+					  width: '100%',
+					  height: '70%'
+				  },
+				  bar: {
+					  groupWidth: '80%'
+				  },
+				  hAxis: {
+					  textStyle: {
+						  fontSize: 11
+					  }
+				  },
+				  vAxis: {
+					  minValue: 0,
+					  maxValue: 100,
+					  baselineColor: '#DDD',
+					  gridlines: {
+						  color: '#DDD',
+						  count: 4
+					  },
+					  textStyle: {
+						  fontSize: 11
+					  }
+				  },
+				  legend: {
+					  position: 'bottom',
+					  textStyle: {
+						  fontSize: 12
+					  }
+				  },
+				  animation: {
+					  duration: 1200,
+					  easing: 'out',
+					  startup: true
+				  }
+			  };
+  
+			  // Рисуем столбчатую диаграмму
+			  var barChart = new google.visualization.ColumnChart(document.getElementById('bar-chart'));
+			  barChart.draw(barData, barOptions);
+			  
+			  // Линейный график
+			  var lineData = google.visualization.arrayToDataTable([
+				  ['Месяц', 'Образовательные', 'Дополнительные'],
+				  ['Сен',  85, 90],
+				  ['Окт',  78, 85],
+				  ['Ноя',  92, 88],
+				  ['Дек',  70, 75],
+				  ['Янв',  88, 95],
+				  ['Фев',  95, 80],
+				  ['Мар',  80, 85]
+			  ]);
+  
+			  var lineOptions = {
+				  backgroundColor: 'transparent',
+				  colors: ['cornflowerblue', 'tomato'],
+				  fontName: 'Open Sans',
+				  focusTarget: 'category',
+				  chartArea: {
+					  left: 50,
+					  top: 10,
+					  width: '100%',
+					  height: '70%'
+				  },
+				  hAxis: {
+					  textStyle: {
+						  fontSize: 11
+					  },
+					  baselineColor: 'transparent',
+					  gridlines: {
+						  color: 'transparent'
+					  }
+				  },
+				  vAxis: {
+					  minValue: 0,
+					  maxValue: 100,
+					  baselineColor: '#DDD',
+					  gridlines: {
+						  color: '#DDD',
+						  count: 4
+					  },
+					  textStyle: {
+						  fontSize: 11
+					  }
+				  },
+				  legend: {
+					  position: 'bottom',
+					  textStyle: {
+						  fontSize: 12
+					  }
+				  },
+				  animation: {
+					  duration: 1200,
+					  easing: 'out',
+					  startup: true
+				  }
+			  };
+  
+			  var lineChart = new google.visualization.LineChart(document.getElementById('line-chart'));
+			  lineChart.draw(lineData, lineOptions);
+		  }
+	  </script>
+  <div class="container8">
+	  <div class="container">
+		  <h2>Мои баллы</h2>
+		  <p>Графики по месяцам</p>
+		  <div id="bar-chart"></div>
+		  <div id="line-chart"></div>
+	  </div>
+	</div>
+
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+
+	<script src="script.js"></script>
+
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
